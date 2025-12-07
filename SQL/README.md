@@ -1,2 +1,2 @@
 # SQL Scripts
-This folder contains all SQL scripts used in the BI portfolio project.
+This folder contains all SQL scripts used in my BI portfolio project.
