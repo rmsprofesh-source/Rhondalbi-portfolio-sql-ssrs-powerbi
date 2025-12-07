@@ -103,7 +103,8 @@ CREATE TABLE HR.Employees (
     Gender CHAR(1) NOT NULL,
     JobTitleID INT NOT NULL,
     DepartmentID INT NOT NULL,
-    HireDate DATE NOT NULL
+    HireDate DATE NOT NULL,
+    TerminationDate DATE NULL
 );
 PRINT 'Table: HR.Employees created.';
 
