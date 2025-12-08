@@ -1,153 +1,182 @@
-# HR Analytics Dataset — System Overview
+HR Analytics Dataset — System Overview
 
-This project is a complete HR Analytics environment built using a controlled, deterministic data-generation process.  
-The SQL scripts in this repository create the database structure, load lookup values, generate all HR activity, and prepare the dataset for reporting in SSRS, Power BI, and SQL-based analysis.
+This project provides a complete HR Analytics environment that can be recreated using the included SQL scripts. Running these scripts in order sets up the database structure, loads the lookup values, and generates a consistent set of HR activity including employees, job changes, salaries, training records, skills, and performance reviews.
 
----
+The output is deterministic—rebuilding the environment always produces the same dataset, making it straightforward to reset, validate, and work with across different machines.
 
-## Purpose of the Dataset
+Purpose of the Dataset
 
-The goal of this environment is to model the everyday questions HR teams answer:
+The dataset models the core information found in many HR systems, including:
 
-- Hiring activity and onboarding trends  
-- Department movement and job progression  
-- Salary changes over time  
-- Training activity and skill development  
-- Turnover patterns and retention insights  
-- Tenure distribution and employee lifecycle metrics  
+Employee records
 
-The dataset is designed for BI demonstrations, dashboard creation, and interview-ready SQL examples.
+Departments and job titles
 
----
+Job movement and promotions
 
-## Deterministic, Repeatable Data
+Compensation changes
 
-The entire dataset is **deterministic**, meaning:
+Training activity
 
-- Every run produces the exact same results  
-- Reviewers, recruiters, or hiring managers can reproduce it on their own machine  
-- Scripts are safe to re-run without randomness or drift  
+Skill assignments
 
-This makes the environment ideal for tutorials, demos, and proof-of-skill exercises.
+Performance evaluations
 
----
+Termination and retention patterns
 
-## Schema Overview
+It provides a reliable foundation for:
 
-The HR schema includes all the core elements of a real-world HR system:
+SQL-based analytics
 
-- **Employees**  
-- **Departments**  
-- **Job titles & job history**  
-- **Salary history**  
-- **Training records**  
-- **Skills and employee-skill assignments**  
-- **Performance appraisals**
+SSRS report development
 
-Each table is linked using proper keys and constraints to ensure referential integrity and realistic behavior.
+Power BI modeling
 
----
+BI practice and exploration
 
-## Lookup-Driven Design
+Trend and KPI analysis
 
-Lookup tables are loaded before any employees are generated.  
-These include:
+Schema Overview
 
-- Departments  
-- Job titles  
-- Training types  
-- Skill definitions  
-- Rating scales  
-- Miscellaneous reference values  
+The database is organized into logical areas that reflect common HR domains.
 
-Because lookups are created first, all downstream data is clean, consistent, and validated.
+Core Entities
 
----
+Employees
 
-## Script Workflow
+Departments
 
-### **Script 01 — CreateSchema**
-Creates:
+Job titles
 
-- All tables  
-- Primary/foreign keys  
-- Constraints  
-- Relationships  
-- Schemas  
+Activity & Historical Data
 
-This establishes the entire HR data model structure.
+Job change history
 
----
+Salary history
 
-### **Script 02 — LoadLookups**
-Loads the static lookup values that every other script depends on.
+Training completions
 
-These remain consistent across all environments and runs.
+Employee skill assignments
 
----
+Performance review entries
 
-### **Script 03 — GenerateEmployeesAndHistory**
-Builds the main dataset:
+Lookup / Reference Tables
 
-- Employees  
-- Hire dates  
-- Job history  
-- Salary movement  
-- Training activity  
-- Skill assignments  
-- Appraisal history  
+Departments
 
-All data follows deterministic patterns to ensure predictable results.
+Job title definitions
 
----
+Skills
 
-### **Script 04 — AddTerminations**
-Adds controlled termination events for ~15% of employees.
+Training types
 
-Rules include:
+Rating scales
 
-- Termination date = 7 days after last job change  
-- If no job history exists, base date is HireDate  
-- Termination dates never exceed today  
-- Logic is deterministic and repeatable  
+Lookup values are loaded before generating employee activity to ensure consistent references across the system.
 
-This script completes the employee lifecycle and unlocks turnover and retention analytics.
+Script Workflow
+Script 01 — CreateSchema
 
----
+Creates the full database structure, including:
 
-## Analytics Stored Procedures
+Tables
 
-The system includes four BI-focused stored procedures designed for dashboards and HR reporting:
+Keys
 
-### **HR.GetHeadcountTrend**
-Returns month-by-month headcount using hire/termination logic.
+Relationships
 
-### **HR.GetTurnoverMetrics**
-Calculates monthly turnover:  
-headcount at start of month, terminations, turnover rate.
+Constraints
 
-### **HR.GetRetentionSummary**
-Provides a one-row snapshot of retention vs. terminations.
+Indexing
 
-### **HR.GetTenureMetricsSummary**
-Returns:  
-1. Employee-level tenure details  
-2. High-level tenure KPI metrics  
+This establishes the foundation for all other scripts.
 
-These procedures provide everything needed for SSRS reports, Power BI models, and SQL query demos.
+Script 02 — LoadLookups
 
----
+Populates all lookup and reference tables with predefined data such as:
 
-## Result
+Department names
 
-When these scripts and procedures are run in order, they produce a complete, production-style HR Analytics environment that demonstrates:
+Job titles
 
-- Data modeling  
-- ETL logic  
-- Query development  
-- Stored procedure design  
-- BI reporting skills  
-- Real-world HR metrics and KPIs  
+Skills
 
-This environment forms the foundation for your BI Developer portfolio.
+Rating scales
 
+Training definitions
+
+These values support all subsequent HR activity.
+
+Script 03 — GenerateEmployeesAndHistory
+
+Generates the complete HR activity layer, including:
+
+Employee records
+
+Hire dates
+
+Job progression
+
+Salary changes
+
+Assigned skills
+
+Training events
+
+Performance review data
+
+All values follow deterministic rules, ensuring the same dataset is produced every time the scripts are run.
+
+Script 04 — AddTerminations
+
+Assigns termination dates based on clear and consistent business rules:
+
+Terminations occur after each employee’s most recent job change
+
+TerminationDate = LastChangeDate + 7 days
+
+Approximately 15% of employees receive a termination date
+
+The selection pattern is deterministic
+
+This script enables analysis related to turnover, tenure, and retention.
+
+Rebuilding the Database
+
+To recreate the full HR Analytics environment, run the scripts in the following sequence:
+
+01_CreateSchema.sql
+
+02_LoadLookups.sql
+
+03_GenerateEmployeesAndHistory.sql
+
+04_AddTerminations.sql
+
+Running them in order will always produce the same, clean dataset.
+
+Intended Use
+
+This dataset is well-suited for:
+
+HR reporting and analytics
+
+SSRS paginated report development
+
+Power BI dashboards and modeling
+
+KPI and trend analysis
+
+Exploratory SQL work
+
+Learning and practicing BI concepts
+
+The structure reflects real-world HR systems, making it practical for hands-on analytics without relying on sensitive or proprietary organizational data.
+
+Notes
+
+All data is generated deterministically.
+
+The environment can be rebuilt at any time simply by rerunning the scripts in order.
+
+There are no external dependencies beyond SQL Server.
