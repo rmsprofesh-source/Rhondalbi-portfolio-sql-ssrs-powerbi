@@ -1,4 +1,4 @@
- SSRS HR Analytics Reports
+# SSRS HR Analytics Reports
 
 This folder contains SQL Server Reporting Services (SSRS) report files and supporting assets for the **TechCorp HR Analytics Platform**.  
 These reports are powered by the HR Analytics SQL Server database and stored procedures developed for employee headcount, tenure, and retention analysis.
@@ -47,3 +47,16 @@ All underlying logic is implemented in T-SQL and included in the `/SQL/StoredPro
 ---
 
 ## 📂 File Structure
+
+SSRS/
+└── Reports/
+├── RPT_HR_TenureSummary.rdl # Report design file
+├── EmployeeTenureReport.png # Preview screenshot
+└── README.md # Documentation for this folder
+
+
+---
+
+## ✨ Created By
+**Rhondal S.**  
+BI Developer • SQL Server • SSRS • Power BI  
