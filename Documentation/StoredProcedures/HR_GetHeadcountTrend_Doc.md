@@ -1,72 +1,98 @@
-# Stored Procedure: HR.GetHeadcountTrend
+# 📊 Stored Procedure: HR.GetTurnoverMetrics
 
 ## 📌 Purpose
-This stored procedure calculates the **monthly headcount** for the organization by determining how many employees were active during each month in the reporting timeline.
+This stored procedure calculates **monthly turnover metrics**, including:
 
-Headcount includes **all employees whose employment period overlaps a given month**.  
-It supports:
+- Headcount at the beginning of each month  
+- Number of terminations occurring during the month  
+- Turnover rate (terminations ÷ starting headcount)
 
-- HR dashboards  
-- Workforce planning  
-- Staffing trend analysis  
-- Executive reporting  
+These metrics support HR dashboards, turnover analytics, and workforce trend reporting.
 
 ---
 
-## 🧠 Business Rules
+## 📘 Business Rules
 
-An employee is considered **active** for a reporting month if:
+### 🔢 Headcount Rules
+An employee counts as active at the month’s start if:
 
-- **HireDate ≤ MonthEnd**  
-- **AND (TerminationDate IS NULL OR TerminationDate ≥ MonthStart)**  
+- They were hired **on or before** the first day of the month  
+- They were **not terminated** before that date  
 
-Additional rules:
+### ❌ Termination Rules
+A termination belongs to a month if:
 
-- The procedure generates a **continuous list of months** from the earliest HireDate through the current month.  
-- Headcount is calculated at the **start of each month**.  
-- Output is fully **deterministic**, based on the existing HR.Employees table.
+- `TerminationDate >= MonthStart`  
+- `TerminationDate < MonthStart + 1 month`
 
----
+### 📉 Turnover Rate Formula
 
-## 📅 Month Boundaries
+TurnoverRate = Terminations / HeadcountStart
 
-| Boundary      | Definition                       |
-|---------------|-----------------------------------|
-| **MonthStart** | First day of the month           |
-| **MonthEnd**   | Last day of the month (calculated)|
+
+If `HeadcountStart = 0`, turnover is returned as **0** (prevents divide-by-zero errors).
+
+### 📅 Month Boundaries
+The procedure auto-generates a continuous month list from:
+
+- Earliest employee HireDate → **current month**
+
+Ensures no gaps in the turnover trend.
 
 ---
 
 ## ⚙️ Technical Logic Summary
 
 ### **1️⃣ Generate Month List (Months CTE)**
-Creates a chronological sequence of reporting months beginning at the earliest employee HireDate and ending at the current month.
-
-### **2️⃣ Determine Active Employees (MonthlyData CTE)**
-Counts all employees who qualify as active during each month based on hire and termination dates.
-
-### **3️⃣ Final Output**
-Returns one row per month with:
-
-- Start date  
-- End date  
-- Active employee headcount  
-
-This produces a clean trend dataset ideal for SSRS, Power BI, and time-series analytics.
+- Uses `DATEFROMPARTS()` to create the first day of each month  
+- Builds a complete chronological sequence  
+- Ensures full date coverage for long-range reporting  
 
 ---
 
-## 📤 Output Columns
+### **2️⃣ Monthly Data (MonthlyData CTE)**
+Calculates two core metrics:
 
-| Column       | Description                                      |
-|--------------|--------------------------------------------------|
-| **MonthStart** | First day of the reporting month                |
-| **MonthEnd**   | Last day of the reporting month                 |
-| **Headcount**  | Total number of active employees in that month  |
+- **HeadcountStart** — number of active employees at month start  
+- **Terminations** — termination events during the month  
+
+These metrics form the inputs for turnover calculations.
+
+---
+
+### **3️⃣ Final Output**
+Returns a clean month-by-month turnover summary:
+
+- **MonthStart**  
+- **MonthEnd**  
+- **HeadcountStart**  
+- **Terminations**  
+- **TurnoverRate**  
+
+Results are always sorted chronologically (oldest → newest).
+
+---
+
+## 📄 Output Columns
+
+| Column | Description |
+|--------|-------------|
+| **MonthStart** | First day of the reporting month |
+| **MonthEnd** | Last day of the reporting month |
+| **HeadcountStart** | Employee count at month start |
+| **Terminations** | Terminations during the month |
+| **TurnoverRate** | Terminations ÷ HeadcountStart |
 
 ---
 
 ## ▶️ Usage Example
-
 ```sql
-EXEC HR.GetHeadcountTrend;
+EXEC HR.GetTurnoverMetrics;
+
+🔗 Dependencies
+
+This procedure relies on:
+
+    HR.Employees
+
+    HR.EmployeeHireHistory (indirectly—termination logic respects job change chronology)
