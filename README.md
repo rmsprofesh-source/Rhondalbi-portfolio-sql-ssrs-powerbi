@@ -50,6 +50,8 @@ These items will appear in future commits:
 - **Power BI Dashboard** (Headcount, Tenure, Retention trends)
 - **SSIS ETL Workflow** for automated data loading
 - **Architecture diagrams & expanded documentation**
+- **Additional SSRS reports**
+- **Additional Stored procedures**
 - **YouTube walkthrough series**
 
 ---
