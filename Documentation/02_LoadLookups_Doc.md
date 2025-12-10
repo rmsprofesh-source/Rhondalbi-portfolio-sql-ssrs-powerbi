@@ -1,7 +1,7 @@
 # Script 02 — Lookup Data Loading
 
 ## 📌 Purpose
-Script 02 loads all **lookup tables** required by the HR Analytics dataset.  
+Script 02 loads all **lookup tables** required by the TechCorp_HR_Analytics dataset.  
 These include standardized reference values such as:
 
 - Departments  
