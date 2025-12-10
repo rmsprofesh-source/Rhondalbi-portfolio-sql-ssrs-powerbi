@@ -1,6 +1,6 @@
 # Project Documentation
 
-This folder contains all written documentation for the HR Analytics portfolio project.  
+This folder contains all written documentation for the TechCorp_HR_Analytics portfolio project.  
 It includes system overviews, script explanations, and stored-procedure reference materials for understanding how the synthetic HR dataset was generated and how BI reporting metrics are produced.
 
 The documentation is organized into the following sections:
