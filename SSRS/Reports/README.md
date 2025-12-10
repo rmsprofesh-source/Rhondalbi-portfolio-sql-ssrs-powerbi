@@ -11,6 +11,13 @@ These reports are powered by the HR Analytics SQL Server database and stored pro
 **Preview:**  
 ![Employee Tenure Report](EmployeeTenureReport.png)
 
+### 🧩 Design View (Report Layout)
+This screenshot shows the report in Visual Studio Design Mode, including the tablix, parameters, and layout structure used to build the report.
+
+![Employee Tenure Report – Design View](EmployeeTenureReport_DesignView.png)
+
+---
+
 ### ✔️ Purpose
 The Employee Tenure Detail Report provides HR and leadership with a clear view of:
 - Employee tenure (in years)
@@ -50,9 +57,10 @@ All SQL logic is included in the `/SQL/StoredProcedures/` directory of this repo
 
 This folder includes:
 
-- **RPT_HR_TenureSummary.rdl** — the SSRS report
-- **EmployeeTenureReport.png** — screenshot/preview
-- **README.md** — documentation
+- **RPT_HR_TenureSummary.rdl** — the SSRS report  
+- **EmployeeTenureReport.png** — screenshot/preview  
+- **EmployeeTenureReport_DesignView.png** — design layout screenshot  
+- **README.md** — documentation  
 
 ---
 
