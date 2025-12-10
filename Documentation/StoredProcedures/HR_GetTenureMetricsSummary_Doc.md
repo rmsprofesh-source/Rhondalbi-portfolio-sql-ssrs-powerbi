@@ -99,7 +99,6 @@ It is optimized for repeatable BI reporting.
 
 ## ▶️ Usage Example
 
-sql
 EXEC HR.GetTenureMetricsSummary;
 
 This returns two result sets:
