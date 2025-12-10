@@ -1,45 +1,60 @@
-Stored Procedure: HR.GetRetentionSummary  
-Purpose
+# Stored Procedure: HR.GetRetentionSummary
 
-This stored procedure calculates overall employee retention statistics for the organization.  
-It summarizes the total workforce, how many employees remain active, how many have been terminated, and the overall retention rate.
+## 📌 Purpose
+This stored procedure calculates **overall employee retention statistics** for the organization.  
+It summarizes:
 
-This procedure is used to power executive dashboards, HR scorecards, and high-level workforce stability reporting.
+- Total workforce size  
+- How many employees remain active  
+- How many employees have been terminated  
+- The overall retention rate  
 
-Business Rules
+This procedure powers **executive dashboards, HR scorecards, and workforce stability reporting**.
 
-• TotalEmployees includes every record in HR.Employees  
-• ActiveEmployees are employees with TerminationDate IS NULL  
-• TerminatedEmployees are those with any non-NULL TerminationDate  
-• RetentionRate = ActiveEmployees ÷ TotalEmployees  
-• All values are computed at the moment the procedure is executed
+---
 
-Technical Logic Summary
+## 🧠 Business Rules
 
-1. Count Total Employees  
-   Retrieves the total number of employee records from HR.Employees.
+- **TotalEmployees** = all rows in `HR.Employees`  
+- **ActiveEmployees** = employees with `TerminationDate IS NULL`  
+- **TerminatedEmployees** = employees with any non-NULL `TerminationDate`  
+- **RetentionRate** = ActiveEmployees ÷ TotalEmployees  
+- All values are computed **at execution time** for real-time reporting  
 
-2. Count Active Employees  
-   Employees with no termination date are considered currently active.
+---
 
-3. Count Terminated Employees  
-   Any non-NULL TerminationDate qualifies an employee as terminated.
+## ⚙️ Technical Logic Summary
 
-4. Calculate Retention Rate  
-   RetentionRate = ActiveEmployees / TotalEmployees  
-   Returned as a decimal formatted to two places.
+### **1️⃣ Count Total Employees**
+Retrieves the total number of employees from `HR.Employees`.
 
-5. Final Output  
-   Returns a single row with four values for quick dashboard consumption.
+### **2️⃣ Count Active Employees**
+Employees with no termination date (`TerminationDate IS NULL`) are considered active.
 
-Output Columns  
-Column                Description  
-TotalEmployees        Total number of employees in the system  
-ActiveEmployees       Employees still active (TerminationDate IS NULL)  
-TerminatedEmployees   Employees no longer active  
-RetentionRate         Percentage of employees retained (Active ÷ Total)
+### **3️⃣ Count Terminated Employees**
+Any employee with a non-NULL termination date is marked as terminated.
 
-Usage Example  
+### **4️⃣ Calculate Retention Rate**
+`RetentionRate = ActiveEmployees / TotalEmployees`  
+Returned as a decimal formatted to two places.
+
+### **5️⃣ Final Output**
+Procedure returns **one row** containing all summary metrics — perfect for dashboards.
+
+---
+
+## 📤 Output Columns
+
+| Column                | Description                                                |
+|----------------------|------------------------------------------------------------|
+| **TotalEmployees**      | Total number of employees in the system                  |
+| **ActiveEmployees**     | Employees still active (`TerminationDate IS NULL`)        |
+| **TerminatedEmployees** | Employees no longer active                                |
+| **RetentionRate**       | Percentage of employees retained (Active ÷ Total)         |
+
+---
+
+## ▶️ Usage Example
+
 ```sql
 EXEC HR.GetRetentionSummary;
-
