@@ -87,8 +87,6 @@ Results are always sorted chronologically (oldest → newest).
 
 ## ▶️ Usage Example
 
-EXEC HR.GetTurnoverMetrics;
-
 🔗 Dependencies
 
 This procedure relies on:
@@ -96,3 +94,5 @@ This procedure relies on:
     HR.Employees
 
     HR.EmployeeHireHistory (indirectly—termination logic respects job change chronology)
+'''sql
+EXEC HR.GetTurnoverMetrics;
