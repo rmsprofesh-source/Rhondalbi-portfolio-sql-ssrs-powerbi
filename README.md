@@ -1,11 +1,12 @@
-# BI Developer Portfolio — SQL • SSRS • Data Engineering
+# BI Developer Portfolio — SQL • SSRS • Data Engineering  
 **Author: Rhondal S. (Mo)**  
 *BI Developer | SQL Engineer | SSRS Specialist | Data Analyst*
 
 ---
 
 ## 📌 Overview
-This repository is an evolving **Business Intelligence Developer Portfolio** showcasing real, production-style BI work.  
+This repository showcases a real, production-style Business Intelligence project built entirely by me, demonstrating SQL engineering, SSRS report development, and end-to-end BI solution design.
+
 It currently includes:
 
 - A fully scripted **SQL Server 2022 HR Analytics database**
@@ -13,9 +14,9 @@ It currently includes:
 - A completed **SSRS paginated report** (Employee Tenure Detail Report)
 - Supporting documentation and images
 
-Additional components—including Power BI, SSIS ETL workflows, and extended documentation—will be added as the portfolio continues to grow.
+**All HR data in this project is fully synthetic and programmatically generated.**
 
-This repo demonstrates my ability to design, build, and deliver real BI solutions.
+Additional components—including Power BI, SSIS ETL workflows, and extended documentation—will be added as the portfolio continues to grow.
 
 ---
 
@@ -26,9 +27,9 @@ This repo demonstrates my ability to design, build, and deliver real BI solution
 - Lookup seed data  
 - Employee + history generation  
 - HR Analytics stored procedures  
-- A clean, repeatable setup for employers to run locally
+- A clean, repeatable setup for employers to run locally  
 
-📂 Location: `/SQL/`
+📂 **Location:** `/SQL/`
 
 ---
 
@@ -37,14 +38,13 @@ A production-style paginated report built using Visual Studio 2022 and deployed 
 
 - Employee Tenure Detail Report  
 - Dataset powered by `HR.GetTenureMetricsSummary`  
-- Includes screenshots of design view and preview  
+- Includes screenshots of design view and report preview  
 
-📂 Location: `/SSRS/Reports/`
+📂 **Location:** `/SSRS/Reports/`
 
 ---
 
 ## 🚧 Coming Soon (In Active Development)
-
 These items will appear in future commits:
 
 - **Power BI Dashboard** (Headcount, Tenure, Retention trends)
@@ -52,21 +52,33 @@ These items will appear in future commits:
 - **Architecture diagrams & expanded documentation**
 - **YouTube walkthrough series**
 
-Each section will be added once finalized so employers can clearly see the progression of the project.
-
 ---
 
-## 🎯 What This Portfolio Demonstrates
-- SQL development (T-SQL, stored procedures, data modeling)
-- Report design & deployment in SSRS
-- Ability to build analytic datasets
-- Real-world BI problem-solving
-- Clear, professional documentation
-- End-to-end solution design (with more components being added)
+## 📂 Repository Structure
+```text
+/SQL/                   → Database creation scripts, lookup loads, stored procedures
+/Documentation/         → System overview, script explanations, SP documentation
+/SSRS/Reports/          → Employee Tenure Detail Report (.rdl) and screenshots
+/images/                → Report previews and design screenshots
 
----
+🎯 What This Portfolio Demonstrates
 
-## 📨 Contact  
-**Rhondal S. (Mo)**  
-BI Developer | SQL • SSRS • Power BI  
-Upwork: https://www.upwork.com/freelancers/~016bf471b5d8052dc1?mp_source=share
+    SQL development (T-SQL, stored procedures, data modeling)
+
+    Report design & deployment in SSRS
+
+    Ability to build analytic datasets
+
+    Real-world BI problem-solving
+
+    Clear, professional documentation
+
+    End-to-end BI solution design (with more components coming soon)
+
+📨 Contact
+
+Rhondal S. 
+BI Developer | SQL • SSRS • Power BI
+
+🔗 Upwork:
+https://www.upwork.com/freelancers/~016bf471b5d8052dc1?mp_source=share
