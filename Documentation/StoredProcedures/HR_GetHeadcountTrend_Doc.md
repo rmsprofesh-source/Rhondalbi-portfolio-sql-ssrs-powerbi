@@ -100,19 +100,3 @@ This procedure relies on:
 
 ---
 
-### ✅ This version now includes the same icon set as your other procedures:
-- 📌 Purpose  
-- ⚙️ How it works  
-- 📅 Month logic  
-- 📊 Metrics  
-- ▶️ Usage Example  
-- 🔗 Dependencies  
-
-If you'd like, I can now:
-
-✨ Reformat **all your stored procedure documentation** so they match exactly  
-✨ Build a **Documentation Index Page** for easy navigation  
-✨ Add **links between your docs** (professional portfolio style)  
-
-Just tell me:  
-**“Format the next one”** or **“Rebuild the full documentation index.”**
