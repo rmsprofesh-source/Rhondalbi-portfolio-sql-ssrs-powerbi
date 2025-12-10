@@ -1,5 +1,5 @@
 # BI Developer Portfolio — SQL • SSRS • Data Engineering  
-**Author: Rhondal S. (Mo)**  
+**Author: Rhondal Starks. **  
 *BI Developer | SQL Engineer | SSRS Specialist | Data Analyst*
 
 ---
