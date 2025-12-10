@@ -61,24 +61,24 @@ These items will appear in future commits:
 /SSRS/Reports/          → Employee Tenure Detail Report (.rdl) and screenshots
 /images/                → Report previews and design screenshots
 
-🎯 What This Portfolio Demonstrates
+---
 
-    SQL development (T-SQL, stored procedures, data modeling)
+## 🎯 What This Portfolio Demonstrates
+- SQL development (T-SQL, stored procedures, data modeling)
+- Report design & deployment in SSRS
+- Ability to build analytic datasets
+- Real-world BI problem-solving
+- Clear, professional documentation
+- End-to-end BI solution design (with more components coming soon)
 
-    Report design & deployment in SSRS
+---
 
-    Ability to build analytic datasets
+## 📨 Contact  
+**Rhondal S. (Mo)**  
+BI Developer | SQL • SSRS • Power BI  
 
-    Real-world BI problem-solving
+🔗 **Upwork:**  
+https://www.upwork.com/freelancers/~016bf471b5d8052dc1?mp_source=share  
 
-    Clear, professional documentation
-
-    End-to-end BI solution design (with more components coming soon)
-
-📨 Contact
-
-Rhondal S. 
-BI Developer | SQL • SSRS • Power BI
-
-🔗 Upwork:
-https://www.upwork.com/freelancers/~016bf471b5d8052dc1?mp_source=share
+🔗 **Indeed:**  
+*(Add link here — send it to me and I’ll format it cleanly for you)*  
