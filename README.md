@@ -1,55 +1,72 @@
-# BI Developer Portfolio — End-to-End SQL → SSRS → Power BI Project
-**By: Rhondal S. (Mo)**  
-*BI Developer | SQL Engineer | SSRS Specialist | Power BI Analyst*
+# BI Developer Portfolio — SQL • SSRS • Data Engineering
+**Author: Rhondal S. (Mo)**  
+*BI Developer | SQL Engineer | SSRS Specialist | Data Analyst*
 
 ---
 
 ## 📌 Overview
-This repository showcases a complete end-to-end Business Intelligence solution built using:
+This repository is an evolving **Business Intelligence Developer Portfolio** showcasing real, production-style BI work.  
+It currently includes:
 
-- SQL Server 2022 (T-SQL, Views, Stored Procedures)
-- SSRS (Visual Studio 2026 Paginated Reports)
-- Power BI Desktop (Data Modeling & Visualization)
-- SSIS (ETL Workflow)
-- Redgate Tools (SQL Search, Script Management)
+- A fully scripted **SQL Server 2022 HR Analytics database**
+- Automated **stored procedures** for headcount, tenure, and retention metrics
+- A completed **SSRS paginated report** (Employee Tenure Detail Report)
+- Supporting documentation and images
 
-The goal is to demonstrate real BI developer skills:
-1. Designing a relational data model  
-2. Loading and transforming raw data  
-3. Building stored procedures and reporting datasets  
-4. Creating operational reports in SSRS  
-5. Designing analytics dashboards in Power BI  
-6. Documenting an end-to-end BI project professionally  
+Additional components—including Power BI, SSIS ETL workflows, and extended documentation—will be added as the portfolio continues to grow.
+
+This repo demonstrates my ability to design, build, and deliver real BI solutions.
 
 ---
 
-## 📁 Repository Structure
+## ✅ What’s Available Right Now
 
-SQL/ → Tables, loads, views, stored procedures
-SSRS/ → Visual Studio reports & screenshots
-PowerBI/ → PBIX file and images
-ETL/ → SSIS package and workflow notes
-Documentation/ → Architecture diagram, data model, overview
+### **1️⃣ SQL Server (Complete)**
+- Full schema creation scripts  
+- Lookup seed data  
+- Employee + history generation  
+- HR Analytics stored procedures  
+- A clean, repeatable setup for employers to run locally
 
----
-
-## 🎯 What This Project Demonstrates
-- Strong SQL development capabilities  
-- Report design and deployment with SSRS  
-- Data modeling and visualization in Power BI  
-- ETL workflow creation  
-- Ability to deliver a complete BI solution  
-- Clear communication and documentation  
+📂 Location: `/SQL/`
 
 ---
 
-## 📺 YouTube Walkthrough (Coming Soon)
-A series of videos will demonstrate each phase of the project, including SQL development, SSRS reporting, and Power BI dashboard creation.
+### **2️⃣ SSRS Report (Complete)**
+A production-style paginated report built using Visual Studio 2022 and deployed to SSRS:
+
+- Employee Tenure Detail Report  
+- Dataset powered by `HR.GetTenureMetricsSummary`  
+- Includes screenshots of design view and preview  
+
+📂 Location: `/SSRS/Reports/`
 
 ---
 
-## 📨 Contact
+## 🚧 Coming Soon (In Active Development)
+
+These items will appear in future commits:
+
+- **Power BI Dashboard** (Headcount, Tenure, Retention trends)
+- **SSIS ETL Workflow** for automated data loading
+- **Architecture diagrams & expanded documentation**
+- **YouTube walkthrough series**
+
+Each section will be added once finalized so employers can clearly see the progression of the project.
+
+---
+
+## 🎯 What This Portfolio Demonstrates
+- SQL development (T-SQL, stored procedures, data modeling)
+- Report design & deployment in SSRS
+- Ability to build analytic datasets
+- Real-world BI problem-solving
+- Clear, professional documentation
+- End-to-end solution design (with more components being added)
+
+---
+
+## 📨 Contact  
 **Rhondal S. (Mo)**  
-BI Developer | SQL, SSRS, Power BI  
+BI Developer | SQL • SSRS • Power BI  
 Upwork: https://www.upwork.com/freelancers/~016bf471b5d8052dc1?mp_source=share
-
