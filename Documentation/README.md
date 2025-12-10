@@ -33,7 +33,7 @@ Provides a high-level explanation of:
 This document is the starting point for anyone reviewing the project.
 
 ---
-
+The documentation is designed to be clear, repeatable, and professional, reflecting real enterprise analytics practices.
 ## 📁 Script Documentation
 
 Documentation for the major SQL scripts that build and populate the database:
@@ -57,4 +57,3 @@ Anyone reading the project — including recruiters or hiring managers — can u
 - How HR-level metrics are calculated  
 - How the stored procedures support BI reporting  
 
-The documentation is designed to be clear, repeatable, and professional, reflecting real enterprise analytics practices.
