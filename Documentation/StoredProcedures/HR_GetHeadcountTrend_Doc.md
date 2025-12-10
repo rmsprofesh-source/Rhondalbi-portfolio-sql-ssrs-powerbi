@@ -1,43 +1,72 @@
-Stored Procedure: HR.GetHeadcountTrend  
-Purpose
+# Stored Procedure: HR.GetHeadcountTrend
 
-This stored procedure calculates the monthly headcount for the organization by determining how many employees were active during each month in the reporting timeline.
+## 📌 Purpose
+This stored procedure calculates the **monthly headcount** for the organization by determining how many employees were active during each month in the reporting timeline.
 
-Headcount reflects all employees whose employment period overlaps a given month.  
-It is used to support HR dashboards, staffing trend analysis, and workforce planning.
+Headcount includes **all employees whose employment period overlaps a given month**.  
+It supports:
 
-Business Rules
+- HR dashboards  
+- Workforce planning  
+- Staffing trend analysis  
+- Executive reporting  
 
-• The procedure generates a continuous list of months beginning at the earliest HireDate and ending at the current month.  
-• An employee is counted as active for a month if:
-  – HireDate ≤ MonthEnd  
-  – AND (TerminationDate IS NULL OR TerminationDate ≥ MonthStart)  
-• Headcount is calculated at the start of each month.  
-• Results are deterministic and based entirely on existing HR.Employees data.
+---
 
-Month Boundaries
+## 🧠 Business Rules
 
-MonthStart = first day of the month  
-MonthEnd = last day of the month (computed automatically)
+An employee is considered **active** for a reporting month if:
 
-Technical Logic Summary
+- **HireDate ≤ MonthEnd**  
+- **AND (TerminationDate IS NULL OR TerminationDate ≥ MonthStart)**  
 
-1. Generate Month List (Months CTE)  
-   Creates a chronological sequence of months from earliest employee HireDate through the current month.
+Additional rules:
 
-2. Determine Active Employees (MonthlyData CTE)  
-   Counts all employees whose hire/termination dates qualify them as active during each month.
+- The procedure generates a **continuous list of months** from the earliest HireDate through the current month.  
+- Headcount is calculated at the **start of each month**.  
+- Output is fully **deterministic**, based on the existing HR.Employees table.
 
-3. Final Output  
-   Returns the headcount for each month in order, producing a trend dataset suitable for reporting tools.
+---
 
-Output Columns  
-Column            Description  
-MonthStart        First day of the reporting month  
-MonthEnd          Last day of the reporting month  
-Headcount         Total number of active employees during the month  
+## 📅 Month Boundaries
 
-Usage Example  
+| Boundary      | Definition                       |
+|---------------|-----------------------------------|
+| **MonthStart** | First day of the month           |
+| **MonthEnd**   | Last day of the month (calculated)|
+
+---
+
+## ⚙️ Technical Logic Summary
+
+### **1️⃣ Generate Month List (Months CTE)**
+Creates a chronological sequence of reporting months beginning at the earliest employee HireDate and ending at the current month.
+
+### **2️⃣ Determine Active Employees (MonthlyData CTE)**
+Counts all employees who qualify as active during each month based on hire and termination dates.
+
+### **3️⃣ Final Output**
+Returns one row per month with:
+
+- Start date  
+- End date  
+- Active employee headcount  
+
+This produces a clean trend dataset ideal for SSRS, Power BI, and time-series analytics.
+
+---
+
+## 📤 Output Columns
+
+| Column       | Description                                      |
+|--------------|--------------------------------------------------|
+| **MonthStart** | First day of the reporting month                |
+| **MonthEnd**   | Last day of the reporting month                 |
+| **Headcount**  | Total number of active employees in that month  |
+
+---
+
+## ▶️ Usage Example
+
 ```sql
 EXEC HR.GetHeadcountTrend;
-
