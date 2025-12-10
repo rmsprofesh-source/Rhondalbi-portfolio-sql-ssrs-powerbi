@@ -1,7 +1,7 @@
 # Script 01 — Database & Schema Creation
 
 ## 📌 Purpose
-Script 01 creates the **HR Analytics database** and defines the **entire relational schema**.  
+Script 01 creates the **TechCorp_HR_Analytics database** and defines the **entire relational schema**.  
 It builds all core HR tables, including:
 
 - Employees  
