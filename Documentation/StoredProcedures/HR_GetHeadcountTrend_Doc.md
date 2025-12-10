@@ -86,7 +86,7 @@ Results are always sorted chronologically (oldest → newest).
 ---
 
 ## ▶️ Usage Example
-```sql
+
 EXEC HR.GetTurnoverMetrics;
 
 🔗 Dependencies
