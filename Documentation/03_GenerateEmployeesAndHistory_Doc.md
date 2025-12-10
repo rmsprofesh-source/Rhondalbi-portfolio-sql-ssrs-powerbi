@@ -4,7 +4,7 @@
 Script 03 generates all **employees** and all **related HR activity**, creating a realistic but fully deterministic dataset.  
 This includes job assignments, salary history, promotions, department transfers, skill assignments, training events, and performance appraisals.
 
-This script is the heart of the HR Analytics dataset.
+This script is the heart of the TechCorp_HR_Analytics dataset.
 
 ---
 
