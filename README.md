@@ -45,14 +45,15 @@ A production-style paginated report built using Visual Studio 2022 and deployed 
 ---
 
 ## 🚧 Coming Soon (In Active Development)
-These items will appear in future commits:
+These enhancements are actively being developed and will appear in future commits:
 
-- **Power BI Dashboard** (Headcount, Tenure, Retention trends)
+- **Power BI Dashboard** (Headcount, Tenure, and Retention trends)
 - **SSIS ETL Workflow** for automated data loading
-- **Architecture diagrams & expanded documentation**
-- **Additional SSRS reports**
-- **Additional Stored procedures**
-- **YouTube walkthrough series**
+- **Architecture diagrams** and expanded system documentation
+- **Additional SSRS report packages**
+- **Additional stored procedures** to extend HR analytics coverage
+- **YouTube walkthrough series** for full project demonstrations
+
 
 ---
 
