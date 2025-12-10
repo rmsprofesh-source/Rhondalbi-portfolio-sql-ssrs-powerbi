@@ -55,7 +55,7 @@ These items will appear in future commits:
 ---
 
 ## 📂 Repository Structure
-```text
+
 /SQL/                   → Database creation scripts, lookup loads, stored procedures
 /Documentation/         → System overview, script explanations, SP documentation
 /SSRS/Reports/          → Employee Tenure Detail Report (.rdl) and screenshots
