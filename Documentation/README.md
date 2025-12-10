@@ -1,7 +1,7 @@
 # Project Documentation
 
 This folder contains all written documentation for the HR Analytics portfolio project.  
-It includes system overviews, script explanations, data-model notes, and stored-procedure reference materials.
+It includes system overviews, script explanations, and stored-procedure reference materials for understanding how the synthetic HR dataset was generated and how BI reporting metrics are produced.
 
 The documentation is organized into the following sections:
 
@@ -53,9 +53,8 @@ This directory acts as the **reference library** for the entire BI portfolio pro
 Anyone reading the project — including recruiters or hiring managers — can use these documents to understand:
 
 - How the database was built  
-- How data is generated  
+- How synthetic HR data is generated  
 - How HR-level metrics are calculated  
 - How the stored procedures support BI reporting  
 
 The documentation is designed to be clear, repeatable, and professional, reflecting real enterprise analytics practices.
-
