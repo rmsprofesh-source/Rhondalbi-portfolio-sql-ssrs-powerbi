@@ -2,7 +2,7 @@
 
 ## 📌 Purpose
 This script assigns termination dates to approximately **15% of employees**, ensuring terminations only occur **after an employee’s final job change**.  
-The goal is to introduce realistic turnover behavior into the dataset while maintaining strict chronological accuracy for HR analytics.
+The goal is to introduce realistic turnover behavior into the dataset while maintaining strict chronological accuracy for TechCorp_HR_Analytics analytics.
 
 ---
 
