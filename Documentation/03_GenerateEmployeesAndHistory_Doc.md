@@ -1,20 +1,71 @@
 # Script 03 — Employee & HR Data Generation
 
-## What This Script Does
-Script 03 generates all employees and all related HR activity. This includes job assignments, salary history, promotions, transfers, skill assignments, training participation, and performance appraisals. The data looks realistic but is fully deterministic.
+## 📌 Purpose
+Script 03 generates all **employees** and all **related HR activity**, creating a realistic but fully deterministic dataset.  
+This includes job assignments, salary history, promotions, department transfers, skill assignments, training events, and performance appraisals.
 
-## How It Works
-The script uses lookup tables and rule-based logic to:
+This script is the heart of the HR Analytics dataset.
 
-- Create employees with hire dates and job assignments  
-- Assign salaries based on job title and generate future salary changes  
-- Create job history for promotions and department moves  
-- Attach skills to employees  
-- Generate training events over time  
-- Produce performance review scores  
+---
 
+## ⚙️ How It Works
 
+Script 03 uses lookup tables and rule-based logic to construct complete HR activity timelines:
 
-## Role in the Workflow
-This script runs last. It depends on the schema (Script 01) and the lookup values (Script 02). After it finishes, the database is fully populated and ready to use.
+### **1️⃣ Employee Creation**
+- Generates employees with deterministic hire dates  
+- Assigns each employee an initial department and job title  
 
+---
+
+### **2️⃣ Salary Assignments**
+- Sets starting salaries based on job title  
+- Generates future salary changes using scheduled intervals  
+- Ensures salary progression remains realistic and consistent  
+
+---
+
+### **3️⃣ Job History (Promotions & Moves)**
+- Creates job history entries for:
+  - Promotions  
+  - Lateral transfers  
+  - Department changes  
+- Ensures chronological accuracy across all changes  
+
+---
+
+### **4️⃣ Skill Assignments**
+- Attaches skill tags to each employee  
+- Ensures a mix of skills suitable for analytics and filtering  
+
+---
+
+### **5️⃣ Training Events**
+- Generates historical training participation  
+- Assigns training types and completion dates  
+- Supports training effectiveness analytics  
+
+---
+
+### **6️⃣ Performance Appraisals**
+- Generates performance review scores over time  
+- Produces realistic distributions suitable for dashboards  
+- Supports KPI and HR trend analysis  
+
+---
+
+## 🚀 Role in the Workflow
+Script 03 runs **after**:
+
+1. **Script 01 — Schema Creation**  
+2. **Script 02 — Lookup Data Loading**
+
+Once Script 03 completes, the database becomes:
+
+- Fully populated  
+- Chronologically accurate  
+- Ready for stored procedures, SSRS reports, and Power BI modeling  
+
+This script transforms the database into a rich, analytics-ready HR environment.
+
+---
