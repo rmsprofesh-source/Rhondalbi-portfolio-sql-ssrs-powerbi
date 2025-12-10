@@ -1,75 +1,85 @@
-04 — Add Terminations After Last Job Change
-Purpose
+# Script 04 — Add Terminations After Last Job Change
 
-This script assigns termination dates to approximately 15% of employees, ensuring terminations only occur after an employee’s final job change.
-The goal is to support HR analytics by introducing realistic turnover behavior into the dataset while maintaining chronological accuracy.
+## 📌 Purpose
+This script assigns termination dates to approximately **15% of employees**, ensuring terminations only occur **after an employee’s final job change**.  
+The goal is to introduce realistic turnover behavior into the dataset while maintaining strict chronological accuracy for HR analytics.
 
-Business Rules
+---
 
-Termination Eligibility
-Employees are selected deterministically for termination using:
+## 🧩 Business Rules
+
+### **1️⃣ Termination Eligibility**
+Employees are selected deterministically using:  
 
 EmployeeID % 7 = 0
 
+This produces **~15% terminations** consistently on every run.
 
-This produces ~15% terminations consistently on every run.
+---
 
-Last Job Change
-The script determines the final “active date” for every employee:
+### **2️⃣ Final Active Date (Last Job Change)**
+The script determines the employee’s final active date:
 
-If the employee has entries in HR.EmployeeHireHistory, use the latest ChangeDate.
+- If the employee has entries in **HR.EmployeeJobHistory**, use the **latest ChangeDate**.  
+- If no history exists, default to the **HireDate**.
 
-If no history exists, default to the employee’s HireDate.
+This ensures every employee has a valid timeline anchor before termination.
 
-Termination Date Assignment
+---
+
+### **3️⃣ Termination Date Assignment**
 Each eligible employee receives:
 
-TerminationDate = LastChangeDate + 7 days
+- **TerminationDate = LastChangeDate + 7 days**
 
+This ensures separation occurs *after* the final position change.
 
-Validation Rule
-Termination dates cannot exceed the current date.
-If a calculated date is in the future, it is adjusted to yesterday.
+---
 
-Deterministic Output
-The logic ensures the same input dataset always produces the same terminations.
+### **4️⃣ Validation Rule**
+Termination dates **cannot exceed the current date**.
 
-Technical Logic Summary
+- If the calculated date is in the future → it is adjusted to **yesterday**.
 
-The script works in three stages:
+---
 
-1. Build LastChange CTE
+### **5️⃣ Deterministic Output**
+The procedure always produces the **same terminations for the same dataset**, ensuring reproducibility across environments.
 
-Pulls each employee’s last known active date.
+---
 
-Uses MAX(ChangeDate) from EmployeeHireHistory.
+## ⚙️ Technical Logic Summary
 
-Falls back to HireDate when needed.
+The script operates in **three stages**:
 
-2. Identify Terminated Employees
+### **Stage 1 — Build LastChange CTE**
+Determines each employee’s last known active date:
 
-Filters to IDs where EmployeeID % 7 = 0.
+- `MAX(ChangeDate)` from EmployeeJobHistory  
+- Falls back to HireDate if no history exists  
 
-Calculates a termination date 7 days after the final job change.
+---
 
-3. Update the Employees Table
+### **Stage 2 — Identify Terminated Employees**
+- Filters employees meeting the deterministic rule (`EmployeeID % 7 = 0`)  
+- Calculates TerminationDate = LastChangeDate + 7 days  
 
-Writes the TerminationDate into HR.Employees.
+---
 
-Ensures no termination date is greater than today.
+### **Stage 3 — Update HR.Employees**
+- Writes TerminationDate into the Employees table  
+- Ensures no termination date is later than today  
 
-Output
+---
 
-Updates roughly 15% of employees.
+## 📤 Output
 
-Populates HR.Employees.TerminationDate with chronologically valid values.
+This script:
 
-Supports downstream analytics for:
-
-Turnover
-
-Retention
-
-Headcount movement
-
-HR reporting accuracy
+- Updates **~15% of employees**  
+- Populates `HR.Employees.TerminationDate` with chronologically correct values  
+- Supports downstream analytics for:
+  - Turnover  
+  - Retention  
+  - Headcount movement  
+  - HR reporting accuracy  
